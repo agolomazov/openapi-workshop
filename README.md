@@ -8,3 +8,10 @@ Workshop по инструментам для работы с OpenAPI Specificat
 1. [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) - code-generator из спецификаций OpenAPI
 1. [Документация Stoplight](https://meta.stoplight.io/docs/platform/ZG9jOjIwNjk2MQ-welcome-to-the-stoplight-docs)
 1. [ModHeader](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj) - расширение для Google Chrome для отправки кастомных заголовков
+1. [Конфиги генератора для Typescript](https://openapi-generator.tech/docs/generators/typescript-axios/)
+
+
+### Необходимые технологии для запуска
+
+1. [Java 1.8](https://openjdk.java.net/install/)
+1. [NodeJS](https://nodejs.org/en/)
