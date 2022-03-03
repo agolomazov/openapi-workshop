@@ -1,0 +1,24 @@
+{
+  "name": "agolomazov-openapi-workshop",
+  "version": "1.0.0",
+  "description": "Workshop по инструментам для работы с OpenAPI Specification",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agolomazov/openapi-workshop.git"
+  },
+  "keywords": [],
+  "author": "Anton Golomazov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agolomazov/openapi-workshop/issues"
+  },
+  "homepage": "https://github.com/agolomazov/openapi-workshop#readme",
+  "devDependencies": {
+    "@stoplight/spectral-cli": "^6.2.1"
+  }
+}
