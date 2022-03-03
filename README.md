@@ -7,3 +7,4 @@ Workshop по инструментам для работы с OpenAPI Specificat
 1. [Prism CLI](https://stoplight.io/open-source/prism/) - Mock-сервер
 1. [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) - code-generator из спецификаций OpenAPI
 1. [Документация Stoplight](https://meta.stoplight.io/docs/platform/ZG9jOjIwNjk2MQ-welcome-to-the-stoplight-docs)
+1. [ModHeader](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj) - расширение для Google Chrome для отправки кастомных заголовков
