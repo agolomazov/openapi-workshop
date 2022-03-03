@@ -1,0 +1,18 @@
+formats:
+  - oas2
+  - oas3
+  - oas3.0
+extends:
+  - 'spectral:oas'
+rules:
+  info-matches-stoplight:
+    description: This is an example rule
+    message: Info must contain Stoplight
+    given: $.info
+    recommended: true
+    type: style
+    then:
+      field: title
+      function: pattern
+      functionOptions:
+        match: Stoplight

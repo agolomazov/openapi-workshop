@@ -1,0 +1,170 @@
+openapi: 3.0.0
+info:
+  title: todos-api-spec
+  version: '1.0'
+  description: API для работы с заметками
+  contact:
+    name: Anton Golomazov
+    url: 'https://vk.com/agolomazov'
+    email: cesear@bk.ru
+  license:
+    name: MIT
+    url: 'https://mit.com'
+servers:
+  - url: 'http://netology.ru/backend/api/todos'
+    description: Production
+paths:
+  '/users/{userId}':
+    parameters:
+      - schema:
+          type: string
+        name: userId
+        in: path
+        required: true
+        description: ID пользователя
+    get:
+      summary: Получение  пользователей по ID
+      tags: []
+      responses:
+        '200':
+          description: User Found
+          content:
+            application/json:
+              schema:
+                $ref: ../models/User.yaml
+              examples:
+                ExampleMan:
+                  value:
+                    id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+                    lastName: Viktor
+                    firstName: Tsoy
+                    birthDay: '2019-08-24'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: number
+                    description: Код ошибки
+                  message:
+                    type: string
+                    description: Сообщение об ошибке
+                required:
+                  - code
+                  - message
+              examples:
+                example-1:
+                  value:
+                    code: 404
+                    message: Ничего не найдено
+      operationId: getUserByID
+      description: Получение пользователей по ID
+    patch:
+      summary: Update User Information
+      operationId: patch-users-userId
+      responses:
+        '200':
+          description: User Updated
+          content:
+            application/json:
+              schema:
+                $ref: ../models/User.yaml
+              examples: {}
+        '404':
+          description: User Not Found
+        '409':
+          description: Email Already Taken
+      description: Update the information of an existing user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                  description: 'If a new email is given, the user''s email verified property will be set to false.'
+                dateOfBirth:
+                  type: string
+            examples:
+              Update First Name:
+                value:
+                  firstName: Rebecca
+              Update Email:
+                value:
+                  email: rebecca@gmail.com
+              Update Last Name & Date of Birth:
+                value:
+                  lastName: Baker
+                  dateOfBirth: '1985-10-02'
+        description: Patch user properties to update.
+  /user:
+    post:
+      summary: Create New User
+      operationId: post-user
+      responses:
+        '200':
+          description: User Created
+          content:
+            application/json:
+              schema:
+                $ref: ../models/User.yaml
+              examples: {}
+        '400':
+          description: Missing Required Information
+        '409':
+          description: Email Already Taken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                dateOfBirth:
+                  type: string
+                  format: date
+              required:
+                - firstName
+                - lastName
+                - email
+                - dateOfBirth
+            examples:
+              Create User Bob Fellow:
+                value:
+                  firstName: Bob
+                  lastName: Fellow
+                  email: bob.fellow@gmail.com
+                  dateOfBirth: '1996-08-24'
+        description: Post the necessary fields for the API to create a new user.
+      description: Create a new user.
+  /users:
+    get:
+      summary: Получение списка пользователей платформы
+      tags:
+        - Пользователи
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: ../models/User.yaml
+      operationId: getUsers
+      description: Получение доступных пользователе
+components:
+  schemas: {}

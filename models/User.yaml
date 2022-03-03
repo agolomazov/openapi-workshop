@@ -1,0 +1,24 @@
+title: Пользователь
+type: object
+description: Модель пользователя
+properties:
+  id:
+    type: string
+    format: uuid
+    description: ID пользователя
+  lastName:
+    type: string
+    minLength: 2
+    description: Фамилия
+  firstName:
+    type: string
+    minLength: 2
+    description: Имя
+  age:
+    type: integer
+    minimum: 18
+    maximum: 90
+    description: Возраст
+required:
+  - lastName
+  - firstName
