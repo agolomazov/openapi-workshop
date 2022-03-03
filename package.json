@@ -8,7 +8,8 @@
     "lint": "spectral lint ./reference/todos-api-spec.yaml --ruleset .spectral.yaml",
     "mock": "prism mock ./reference/todos-api-spec.yaml",
     "openapi:gen": "openapi-generator-cli generate -i ./reference/todos-api-spec.yaml -g typescript-axios -o code-gen/netoTodoSDK --type-mappings=array=Array,set=Array,Error=ModelError -c openapi-gen-config.json",
-    "openapi:ruby": "openapi-generator-cli generate -i ./reference/todos-api-spec.yaml -g ruby -o code-gen/ruby-gem"
+    "openapi:ruby": "openapi-generator-cli generate -i ./reference/todos-api-spec.yaml -g ruby -o code-gen/ruby-gem",
+    "openapi:rails": "openapi-generator-cli generate -i ./reference/todos-api-spec.yaml -g ruby-on-rails -o code-gen/ruby-gem"
   },
   "repository": {
     "type": "git",
