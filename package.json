@@ -6,7 +6,9 @@
   "private": true,
   "scripts": {
     "lint": "spectral lint ./reference/todos-api-spec.yaml --ruleset .spectral.yaml",
-    "mock": "prism mock ./reference/todos-api-spec.yaml"
+    "mock": "prism mock ./reference/todos-api-spec.yaml",
+    "openapi:gen": "openapi-generator-cli generate -i ./reference/todos-api-spec.yaml -g typescript-axios -o code-gen/netoTodoSDK --type-mappings=array=Array,set=Array,Error=ModelError -c openapi-gen-config.json",
+    "openapi:ruby": "openapi-generator-cli generate -i ./reference/todos-api-spec.yaml -g ruby -o code-gen/ruby-gem"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,7 @@
     "@stoplight/spectral-cli": "^6.2.1"
   },
   "dependencies": {
+    "@openapitools/openapi-generator-cli": "^2.4.26",
     "@stoplight/prism-cli": "^4.8.0"
   }
 }

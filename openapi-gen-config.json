@@ -1,0 +1,9 @@
+{
+  "npmName": "netoTodoSdk",
+  "supportsES6": false,
+  "npmVersion": "1.1.0",
+  "apiPackage": "api",
+  "modelPackage": "model",
+  "withSeparateModelsAndApi": true,
+  "useSingleRequestParameter": true
+}
