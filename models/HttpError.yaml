@@ -1,0 +1,20 @@
+title: HttpError
+type: object
+description: Модель HTTP ошибки
+properties:
+  code:
+    type: integer
+    description: Код ошибки
+    enum:
+      - 400
+      - 401
+      - 403
+      - 404
+      - 409
+      - 422
+  message:
+    type: string
+    description: Текст ошибки
+required:
+  - code
+  - message

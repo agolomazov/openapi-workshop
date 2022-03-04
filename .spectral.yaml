@@ -16,3 +16,4 @@ rules:
       function: pattern
       functionOptions:
         match: Stoplight
+    severity: 'off'

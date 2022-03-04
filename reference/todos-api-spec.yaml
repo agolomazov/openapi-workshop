@@ -24,10 +24,11 @@ paths:
         description: ID пользователя
     get:
       summary: Получение  пользователей по ID
-      tags: []
+      tags:
+        - Пользователи
       responses:
         '200':
-          description: User Found
+          description: Пользователь найден
           content:
             application/json:
               schema:
@@ -39,117 +40,57 @@ paths:
                     lastName: Viktor
                     firstName: Tsoy
                     birthDay: '2019-08-24'
-        '404':
-          description: Not Found
+        '400':
+          description: Bad Request
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  code:
-                    type: number
-                    description: Код ошибки
-                  message:
-                    type: string
-                    description: Сообщение об ошибке
-                required:
-                  - code
-                  - message
-              examples:
-                example-1:
-                  value:
-                    code: 404
-                    message: Ничего не найдено
+                $ref: ../models/HttpError.yaml
       operationId: getUserByID
       description: Получение пользователей по ID
     patch:
       summary: Update User Information
-      operationId: patch-users-userId
+      operationId: updateUser
       responses:
         '200':
-          description: User Updated
+          description: Пользователь обновлен
           content:
             application/json:
               schema:
                 $ref: ../models/User.yaml
               examples: {}
-        '404':
-          description: User Not Found
-        '409':
-          description: Email Already Taken
-      description: Update the information of an existing user.
+      description: Обновление данных о пользователе
       requestBody:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                firstName:
-                  type: string
-                lastName:
-                  type: string
-                email:
-                  type: string
-                  description: 'If a new email is given, the user''s email verified property will be set to false.'
-                dateOfBirth:
-                  type: string
-            examples:
-              Update First Name:
-                value:
-                  firstName: Rebecca
-              Update Email:
-                value:
-                  email: rebecca@gmail.com
-              Update Last Name & Date of Birth:
-                value:
-                  lastName: Baker
-                  dateOfBirth: '1985-10-02'
-        description: Patch user properties to update.
+              $ref: ../models/User.yaml
+            examples: {}
+        description: Обновление свойств пользователя
+      tags:
+        - Пользователи
   /user:
     post:
-      summary: Create New User
-      operationId: post-user
+      summary: Добавление пользователя
+      operationId: createUser
       responses:
         '200':
-          description: User Created
+          description: Пользователь создан
           content:
             application/json:
               schema:
                 $ref: ../models/User.yaml
               examples: {}
-        '400':
-          description: Missing Required Information
-        '409':
-          description: Email Already Taken
       requestBody:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                firstName:
-                  type: string
-                lastName:
-                  type: string
-                email:
-                  type: string
-                dateOfBirth:
-                  type: string
-                  format: date
-              required:
-                - firstName
-                - lastName
-                - email
-                - dateOfBirth
-            examples:
-              Create User Bob Fellow:
-                value:
-                  firstName: Bob
-                  lastName: Fellow
-                  email: bob.fellow@gmail.com
-                  dateOfBirth: '1996-08-24'
-        description: Post the necessary fields for the API to create a new user.
-      description: Create a new user.
+              $ref: ../models/User.yaml
+            examples: {}
+        description: ''
+      description: Добавление нового пользователя
+      tags:
+        - Пользователи
   /users:
     get:
       summary: Получение списка пользователей платформы
@@ -168,3 +109,5 @@ paths:
       description: Получение доступных пользователе
 components:
   schemas: {}
+tags:
+  - name: Пользователи
