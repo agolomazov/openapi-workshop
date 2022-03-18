@@ -15,3 +15,16 @@ Workshop по инструментам для работы с OpenAPI Specificat
 
 1. [Java 1.8](https://openjdk.java.net/install/)
 1. [NodeJS](https://nodejs.org/en/)
+
+### Скрипты для запуска 
+
+```bash
+npm run lint            # запуск линтера
+npm run mock            # запуск мок-сервера
+npm run openapi:gen     # запуск генерации фронтенда
+npm run openapi:ruby    # запуск генерации руби-кода 
+npm run openapi:rails   # запуск генерации RoR-gem 
+npm run openapi:mysql   # запуск генерации RoR-gem 
+npm run generate        # запуск генерации npm-пакета 
+    
+```
